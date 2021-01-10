@@ -1,0 +1,27 @@
+{
+  "name": "exo_back_tictactrip",
+  "version": "1.0.0",
+  "description": "test technique",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ornella452/exo_back_Tictactrip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ornella452/exo_back_Tictactrip/issues"
+  },
+  "homepage": "https://github.com/Ornella452/exo_back_Tictactrip#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.10",
+    "nodemon": "^2.0.7",
+    "ratelimiter": "^3.4.1"
+  }
+}
