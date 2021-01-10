@@ -1,23 +1,30 @@
+
+// Mes imports
 const express = require('express')
 const app = express()
-//const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const jwt = require('jsonwebtoken');
 const User = require('./models/user')
 //const rateLimit = require('express-rate-limit')
 //const Limiter = require('ratelimiter')
 const port = 3001;
 
-// mongoose.connect("mongodb://localhost:27017/test_back_Tictactrip",
-//     {
-//         useNewUrlParser: true,
-//         useCreateIndex: true,
-//         useUnifiedTopology: true,
-//     }
-// );
 
+// la destination pour ma BDD
+mongoose.connect("mongodb://localhost:27017/test_back_Tictactrip",
+    {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+    }
+);
 
+// pour le type si on veut un un json ou  un text
 app.use(express.json());
 app.use(express.text({ type: 'text/*' }))
+
+
+// tentative de faire la rate limite de 80 000 mots par jours  
 
 // const rateLimiterWord = rateLimit({
 //     windowMs: 24 * 60 * 60 * 1000, // 24 hrs in milliseconds
@@ -90,6 +97,8 @@ app.post('/api/token', (req, res) => {
 
     jwt.sign({ email }, 'secretkey', async (err, token) => {
 
+
+        // si on veut enregistrer l'email dans notre base
         await User.create({
             email
         })
@@ -100,7 +109,6 @@ app.post('/api/token', (req, res) => {
 
     })
 })
-
 
 
 app.listen(port, () => {
